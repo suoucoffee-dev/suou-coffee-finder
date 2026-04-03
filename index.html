@@ -638,12 +638,12 @@ async function loadInventory(){
     const newPrices={};
     rows.forEach(row=>{
       // CSVのカンマ対応（ダブルクォート内のカンマを無視）
-      const cols=row.match(/(".*?"|[^,]+|(?<=,)(?=,)|^(?=,)|(?<=,)$)/g)||row.split(',');
       const no=parseInt(cols[0]);
       if(!no) return;
       const stockVal=cols[4]?.trim().toUpperCase();
       const inStock=stockVal!=='FALSE'&&stockVal!=='0'&&stockVal!=='';
       newStock[no]=inStock;
+      newStock[String(no)]=inStock;
       const p100=parseInt(cols[5])||0;
       const p200=parseInt(cols[6])||0;
       const p500=parseInt(cols[7])||0;
@@ -684,7 +684,7 @@ function getPriceText(b){
 
 function isAvail(b,a){
   // 在庫管理画面でOFFにされた豆は除外
-  if(inventoryStock[b.no]===false) return false;
+  if(inventoryStock[b.no]===false||inventoryStock[b.no]===0||inventoryStock[String(b.no)]===false||inventoryStock[String(b.no)]===0) return false;
   if(b.outOfStock||b.comingSoon)return false;
   const d=b.cat==='デカフェ';
   if(a.decaf==='decaf'&&!d)return false;
