@@ -616,24 +616,12 @@ let inventoryStock={};
 let priceOverrides={};
 
 async function loadInventory(){
-  // まずlocalStorageのキャッシュを読み込む（オフライン対応）
+  // スプレッドシートから最新データを取得（常に優先・キャッシュ回避）
   try{
-    const saved=localStorage.getItem(STORAGE_KEY);
-    if(saved) inventoryStock=JSON.parse(saved);
-    else BEANS.forEach(b=>inventoryStock[b.no]=true);
-  }catch(e){ BEANS.forEach(b=>inventoryStock[b.no]=true); }
-  try{
-    const saved=localStorage.getItem(PRICE_KEY);
-    if(saved) priceOverrides=JSON.parse(saved);
-  }catch(e){}
-
-  // スプレッドシートから最新データを取得
-  try{
-    const res=await fetch(SHEET_URL);
+    const res=await fetch(SHEET_URL+'&t='+Date.now());
     const csv=await res.text();
     const rows=csv.trim().split('\n').slice(1);
     console.log('スプレッドシート読み込み成功。行数:', rows.length);
-    console.log('先頭3行:', rows.slice(0,3));
     const newStock={};
     const newPrices={};
     rows.forEach(row=>{
@@ -657,10 +645,18 @@ async function loadInventory(){
     console.log('在庫OFFの豆:', Object.entries(newStock).filter(([,v])=>!v).map(([k])=>k));
     inventoryStock=newStock;
     priceOverrides=newPrices;
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(inventoryStock));
-    localStorage.setItem(PRICE_KEY,JSON.stringify(priceOverrides));
   }catch(e){
-    console.log('スプレッドシート読み込み失敗:', e);
+    // スプレッドシート取得失敗時のみlocalStorageを使う
+    console.log('スプレッドシート読み込み失敗、キャッシュを使用:', e);
+    try{
+      const saved=localStorage.getItem(STORAGE_KEY);
+      if(saved) inventoryStock=JSON.parse(saved);
+      else BEANS.forEach(b=>inventoryStock[b.no]=true);
+    }catch(e2){ BEANS.forEach(b=>inventoryStock[b.no]=true); }
+    try{
+      const saved=localStorage.getItem(PRICE_KEY);
+      if(saved) priceOverrides=JSON.parse(saved);
+    }catch(e2){}
   }
 }
 
