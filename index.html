@@ -609,26 +609,63 @@ function score(b,a){
   return s;
 }
 // 在庫管理画面と同じキーでlocalStorageから在庫を読み込む
+const SHEET_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vS3aY18PiOtoCh7sqSRR50QQWSB0bVUcR2YrwDkDNFOhgYP-30y-Z8NAGQOsuFstT5EEd-O4pLXnh9N/pub?gid=1921417510&single=true&output=csv';
 const STORAGE_KEY='suou_inventory_v1';
 const PRICE_KEY='suou_prices_v1';
 let inventoryStock={};
 let priceOverrides={};
 
-function loadInventory(){
+async function loadInventory(){
+  // まずlocalStorageのキャッシュを読み込む（オフライン対応）
   try{
     const saved=localStorage.getItem(STORAGE_KEY);
     if(saved) inventoryStock=JSON.parse(saved);
     else BEANS.forEach(b=>inventoryStock[b.no]=true);
-  }catch(e){
-    BEANS.forEach(b=>inventoryStock[b.no]=true);
-  }
-  // 価格オーバーライドを読み込む
+  }catch(e){ BEANS.forEach(b=>inventoryStock[b.no]=true); }
   try{
     const saved=localStorage.getItem(PRICE_KEY);
     if(saved) priceOverrides=JSON.parse(saved);
   }catch(e){}
+
+  // スプレッドシートから最新データを取得
+  try{
+    const res=await fetch(SHEET_URL);
+    const csv=await res.text();
+    const rows=csv.trim().split('\n').slice(1);
+    console.log('スプレッドシート読み込み成功。行数:', rows.length);
+    console.log('先頭3行:', rows.slice(0,3));
+    const newStock={};
+    const newPrices={};
+    rows.forEach(row=>{
+      // CSVのカンマ対応（ダブルクォート内のカンマを無視）
+      const cols=row.match(/(".*?"|[^,]+|(?<=,)(?=,)|^(?=,)|(?<=,)$)/g)||row.split(',');
+      const no=parseInt(cols[0]);
+      if(!no) return;
+      const stockVal=cols[4]?.trim().toUpperCase();
+      const inStock=stockVal!=='FALSE'&&stockVal!=='0'&&stockVal!=='';
+      newStock[no]=inStock;
+      const p100=parseInt(cols[5])||0;
+      const p200=parseInt(cols[6])||0;
+      const p500=parseInt(cols[7])||0;
+      if(p100||p200||p500){
+        newPrices[no]={};
+        if(p100) newPrices[no].p100=p100;
+        if(p200) newPrices[no].p200=p200;
+        if(p500) newPrices[no].p500=p500;
+      }
+    });
+    console.log('在庫OFFの豆:', Object.entries(newStock).filter(([,v])=>!v).map(([k])=>k));
+    inventoryStock=newStock;
+    priceOverrides=newPrices;
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(inventoryStock));
+    localStorage.setItem(PRICE_KEY,JSON.stringify(priceOverrides));
+  }catch(e){
+    console.log('スプレッドシート読み込み失敗:', e);
+  }
 }
-loadInventory();
+
+// 起動時にスプレッドシートを読み込んでから画面を表示
+loadInventory().then(()=>renderQ());
 
 // 豆の実際の価格を取得（管理画面で上書きされていればそちらを優先）
 function getPrice(b){
@@ -858,8 +895,6 @@ function restart(){
   renderQ();
   window.scrollTo(0,0);
 }
-
-renderQ();
 </script>
 </body>
 </html>
