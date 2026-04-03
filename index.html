@@ -637,7 +637,7 @@ async function loadInventory(){
     const newStock={};
     const newPrices={};
     rows.forEach(row=>{
-      // CSVのカンマ対応（ダブルクォート内のカンマを無視）
+      const cols=row.split(',');
       const no=parseInt(cols[0]);
       if(!no) return;
       const stockVal=cols[4]?.trim().toUpperCase();
