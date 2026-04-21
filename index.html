@@ -384,28 +384,16 @@ body{
 <script>
 const LOGO_LOADED = true;
 
-const BEANS=[{no:1,n1:"グアテマラ",n2:"デカフェ",bitter:3,acid:2,body:2,roast:4,price:1000,cat:"デカフェ",comment:"カフェインレスとは思えない、香り、コク、甘み。スペシャルティコーヒーとして十分においしい。"},{no:2,n1:"コンゴ",n2:"ローランドゴリラ KIVU3",bitter:4,acid:1,body:3,roast:6,price:1000,cat:"スペシャリティー",comment:"深いコクと濃厚な甘み。後味に程よい苦味。"},{no:3,n1:"コロンビア",n2:"ジューシーストロベリー",bitter:2,acid:3,body:3,roast:5,price:3000,cat:"スペシャリティー",comment:"豆とイチゴを一緒に発酵させたインフューズド製法。ストロベリー・チョコレートの味わい。"},{no:4,n1:"インド",n2:"モンスーン マラバール AA",bitter:3,acid:2,body:3,roast:5,price:850,cat:"スペシャリティー",comment:"コーヒーとほうじ茶と紅茶を混ぜたような味わい。相性が合う方には忘れられない逸品。"},{no:5,n1:"インドネシア",n2:"ベイビービンタン",bitter:3,acid:2,body:3,roast:6,price:1000,cat:"スペシャリティー",comment:"マンデリン特有の深み・コクはそのまま苦味は優しくまろやか。"},{no:6,n1:"ブラジル",n2:"ドルチェ チョコラーダ",bitter:3,acid:2,body:3,roast:5,price:850,cat:"スペシャリティー",comment:"チョコレートのような甘さとコク。ダークチョコのような優しい苦味。"},{no:7,n1:"メキシコ",n2:"チアパス デカフェ",bitter:1,acid:3,body:2,roast:4,price:1400,cat:"デカフェ",comment:"アーモンドミルクのような優しい甘さ、軽やかな酸味。クリーンな飲み心地。"},{no:8,n1:"エルサルバドル",n2:"エル・シプレス農園 ブルボン",bitter:3,acid:3,body:3,roast:4,price:1100,cat:"スペシャリティ",comment:"柑橘系の爽やかな酸味、キャラメルのような甘みとしっかりとしたコク。"},{no:9,n1:"パプアニューギニア",n2:"シウェット マッドマンコーヒー",bitter:4,acid:2,body:4,roast:6,price:900,cat:"スペシャリティー",comment:"ボディに厚みがあり、どっしりとした甘み、ナッツのような香り。"},{no:10,n1:"ブラジル",n2:"キャラメラード デカフェ",bitter:4,acid:1,body:3,roast:5,price:1500,cat:"デカフェ",comment:"キャラメルを連想させる香りと甘さ。しっかりとしたコクでミルクと相性良い。"},{no:11,n1:"ブラジル",n2:"アグア・リンパ農園 Cup of Excellence",bitter:3,acid:3,body:2,roast:3,price:3000,cat:"スペシャリティー",comment:"香ばしさと程よいカカオ感のあるコクと甘み。後味が柔らかくバランスのとれた優しい味わい。"},{no:12,n1:"アメリカ",n2:"ハワイコナ No.1",bitter:2,acid:2,body:3,roast:4,price:5000,cat:"スペシャリティー",comment:"フルーティーな甘み、まろやかな酸味、苦味が少なく奥深いコク。"},{no:13,n1:"コスタリカ",n2:"ジャガーハニー デカフェ",bitter:2,acid:3,body:2,roast:6,price:1200,cat:"デカフェ",comment:"ハニーらしいとろりとした質感。焦がしキャラメルのような甘さ。"},{no:14,n1:"インドネシア",n2:"ワイルド コピルアック",bitter:3,acid:2,body:5,roast:5,price:6480,cat:"スーパースペシャリティー",comment:"一生に一度はのみたいマニアあこがれの名品。格別の旨さ、香り、余韻。"},{no:15,n1:"インドネシア",n2:"マンデリン ポルン セリブラジャ",bitter:4,acid:1,body:5,roast:6,price:1200,cat:"スペシャリティー",comment:"マンデリンらしいアーシーさやハーブ感。しっかりとしたコク。インパクトのある味わい。"},{no:16,n1:"ボリビア",n2:"コパカバーナ農園 ティピカ",bitter:2,acid:3,body:4,roast:4,price:1200,cat:"スペシャリティー",comment:"バランスの取れた酸味。しっかりとしたコクとハチミツのような優しい甘み。"},{no:17,n1:"ルワンダ",n2:"キニ二 ターナー AA ナチュラル",bitter:1,acid:3,body:2,roast:4,price:1200,cat:"スペシャリティー",comment:"柑橘系の酸味と甘さ、ブラックティーを思わせる味わい。"},{no:18,n1:"ウガンダ ルウェンゾリ",n2:"アフリカンスノー ウォッシュ",bitter:3,acid:2,body:3,roast:5,price:850,cat:"スペシャリティー",comment:"バランスが抜群。好き嫌い分かれない。"},{no:19,n1:"タイ",n2:"ファイマイリアム アナエロビッグ",bitter:1,acid:3,body:1,roast:1,price:1800,cat:"スペシャリティー",comment:"トロピカルフルーツのようなジューシーな甘さと酸味。スパイシーな華やかな香り。"},{no:20,n1:"ミャンマー",n2:"レパンピン村 アップルウォッシュ",bitter:3,acid:2.5,body:3,roast:4,price:1000,cat:"スペシャリティー",comment:"明るい酸味が広がり、果実味を感じるジューシーな味わい。"},{no:21,n1:"ブラジル",n2:"モンテアレグレ ナチュラル",bitter:4,acid:2,body:4,roast:5,price:850,cat:"スペシャリティー",comment:"ナッツのような風味とボリュームのある甘み。"},{no:22,n1:"エチオピア",n2:"イルガチャフィーＧ２ ウオッシュ",bitter:2,acid:2,body:3,roast:3.4,price:850,cat:"スタンダード",comment:"フルーティーな酸味。香り高い。"},{no:23,n1:"エチオピア",n2:"ゲイシャG3 ナチュラル",bitter:2,acid:3,body:3,roast:3,price:950,cat:"スペシャリティー",comment:"フローラルな甘酸っぱい香り、フルーツを思わせる風味。"},{no:24,n1:"ブルンジ",n2:"トングウェ ウォッシングステーション",bitter:2,acid:3,body:2,roast:4,price:950,cat:"スペシャリティー",comment:"シロップのような甘みと滑らかな舌触り。苦味と一緒にあふれる心地良い香り。"},{no:25,n1:"エチオピア",n2:"モカシダモＧ２",bitter:2,acid:3,body:2,roast:4,price:850,cat:"スタンダード",comment:"エチオピア南部の名品。品のある香り。"},{no:26,n1:"ニカラグア",n2:"サンタアナ SHB",bitter:3,acid:3,body:3,roast:3,price:850,cat:"スペシャリティー",comment:"柔らかな酸味、アフターの甘み。"},{no:27,n1:"コロンビア",n2:"カウカ エルヴィエント",bitter:2,acid:3,body:2,roast:5,price:850,cat:"スペシャリティー",comment:"キャラメルのような甘さ。キレのよい酸味。目覚めの朝にぴったり。"},{no:28,n1:"エルサルバドル ＨＧ",n2:"",bitter:2,acid:2,body:2,roast:4,price:650,cat:"スタンダード",comment:"酸味マイルド。後味スッキリ。あっさり。"},{no:29,n1:"キューバ",n2:"クリスタルマウンテン",bitter:3,acid:3,body:2,roast:3,price:2500,cat:"スーパースペシャリティー",comment:"ほのかな酸味。まろやかなコク、甘味が広がる。クリアでくせがない。"},{no:30,n1:"ハイチ",n2:"モンラセル",bitter:2,acid:3,body:2,roast:4,price:1200,cat:"スペシャリティ",comment:"雑味の少ないスッキリとした飲み口。程よい酸味、気品のある豊かな香り。"},{no:31,n1:"グアテマラ",n2:"カフェピューマＳＨＢ",bitter:2,acid:3,body:2,roast:4,price:1000,cat:"スペシャリティー",comment:"キャラメルのようなフレーバーと柔らかな酸味のバランスが美味。"},{no:32,n1:"グアテマラ",n2:"ナチュラル",bitter:2,acid:3,body:2,roast:4,price:950,cat:"スペシャリティー",comment:"ブルーベリーやストロベリーの甘みと酸味にナチュラル特有の香りが加わる華やかな味わい。"},{no:33,n1:"コンゴ",n2:"ベイビーチーター ナチュラル",bitter:2,acid:3,body:3,roast:4,price:950,cat:"スペシャリティ",comment:"まろやかな甘味とコク。程よい酸味、香ばしくスパイシーな香り。"},{no:34,n1:"コロンビア",n2:"ア・モール シン パラブラス",bitter:2,acid:3,body:2,roast:4,price:850,cat:"スペシャリティー",comment:"フルーツ系の明るい酸味、甘みが強く・長く続くクリーンな味わい。"},{no:35,n1:"インド",n2:"パパクチ農園 ファインロブスタ",bitter:4,acid:2,body:4,roast:6,price:950,cat:"スペシャリティー",comment:"ココアパウダーのような味わい。濃厚な甘味としっかりとしたボディ。"},{no:36,n1:"ケニア",n2:"ピンクフラミンゴ",bitter:3,acid:2,body:3,roast:4,price:850,cat:"スペシャリティー",comment:"若干の酸味あるが、コクが強い。味の濃いスイーツと合わせてもコクが負けない。"},{no:37,n1:"ケニア",n2:"マサイAA",bitter:4,acid:1,body:3,roast:5.7,price:1200,cat:"スペシャリティー",comment:"柑橘系のキリッとした酸味と、華やかな香り、濃厚で甘いコクが楽しめます。"},{no:38,n1:"コロンビア",n2:"ラ・プラデーラ農園 デカフェ",bitter:3,acid:2,body:4,roast:5,price:1200,cat:"デカフェ",comment:"ミルクのような口当たり、アーモンドのような香り。デカフェとは思えないしっかりとした甘さ。"},{no:39,n1:"エチオピア",n2:"リムG2 デカフェ",bitter:2,acid:4,body:2,roast:4,price:1200,cat:"デカフェ",comment:"まろやかな口当たり。果実のようなフレッシュな酸味。"},{no:40,n1:"エチオピア",n2:"ミチュG4 プラス",bitter:3,acid:3,body:3,roast:5,price:900,cat:"スペシャリティー",comment:"明るく爽やかな酸味と優しい甘み。フルーティな香りと紅茶のような印象。"},{no:41,n1:"コロンビア",n2:"ＴＡＢＩ",bitter:3,acid:2,body:3,roast:5,price:1000,cat:"スペシャリティー",comment:"バランス抜群。好き嫌い分かれない。焦がしキャラメルのような甘さ。"},{no:42,n1:"パナマ",n2:"タマランカス農園 カツアイ",bitter:3,acid:2,body:3,roast:4,price:1000,cat:"スペシャリティ",comment:"甘みと軽い苦味。ほのかに柑橘系の香り、ダークチョコやナッツの味わい。"},{no:43,n1:"コロンビア",n2:"コロムビア デカフェ CO₂処理",bitter:3,acid:3,body:2,roast:5,price:850,cat:"デカフェ",comment:"コロンビア系のカフェインレス。"},{no:44,n1:"ジャマイカ クライスデール農園",n2:"ブルーマウンテンNo.1",bitter:3,acid:3,body:3,roast:3,price:3000,cat:"スーパースペシャリティー",comment:"珈琲の王様。最高級品。なめらかな舌触りと苦味・酸味・甘味・コクと調和のとれた味わい。"},{no:45,n1:"コロンビア",n2:"トリマ カフェグランデ農協 エルビノ",bitter:3,acid:2,body:3,roast:5,price:1250,cat:"スペシャルティ",comment:"ミルクチョコのような優しい甘み、ナッツのような香ばしさ。後味スッキリ。"},{no:46,n1:"タイ",n2:"ドイパンコン ブラックハニー",bitter:3,acid:3,body:3,roast:5,price:1200,cat:"スペシャリティー",comment:"ブラックハニー精製。甘みと果実感が際立ちます。"},{no:47,n1:"メキシコ",n2:"コアティ JAS オーガニック",bitter:2,acid:2,body:3,roast:5,price:950,cat:"スタンダード",comment:"ブドウの皮のような心地よい渋みとコクのある上品な甘味。バランスが良い。"},{no:48,n1:"中国",n2:"雲南ナチュラル",bitter:3,acid:3,body:3,roast:4,price:650,cat:"スペシャリティー",comment:"ブランデーを感じさせる芳醇な香り。完熟フルーツのような酸味、プーアル茶のようなコク。"},{no:49,n1:"エチオピア",n2:"カッファG1 ウシュウシュ ウォッシュド",bitter:1,acid:4,body:3,roast:3,price:1400,cat:"スペシャリティ",comment:"フレーバーティを思わせる豊かな香り。レモンのような爽やかな酸味と黒糖のような深いコク。"},{no:50,n1:"タンザニア",n2:"んごろごろ",bitter:3,acid:3,body:3,roast:5,price:1000,cat:"スペシャリティー",comment:"芳醇な味、香り。バランスがよい。"},{no:51,n1:"ブルンジ",n2:"ドーレラバリミイ ガジバジバ",bitter:2,acid:4,body:4,roast:5,price:1250,cat:"スペシャリティ",comment:"弾けるような酸味と甘み。しっかりとしたコク、クリーンな後味。"},{no:52,n1:"ニカラグア",n2:"ペラルタ農園 El Bosuque Java",bitter:2,acid:3,body:2,roast:4,price:1000,cat:"スペシャリティー",comment:"レモンを入れた紅茶のような柑橘の酸味と上品な香り。"},{no:53,n1:"コロンビア",n2:"サンアグスティン マグダレナ SUP",bitter:3,acid:2,body:3,roast:5,price:950,cat:"スペシャルティ",comment:"甘み、苦味、コク、ボディのバランスが良く、なめらかな口あたり。"},{no:54,n1:"タンザニア",n2:"アフリカンキャノピー ウォッシュ AA",bitter:2,acid:3,body:2,roast:5,price:1200,cat:"スペシャリティ",comment:"ナッツやチョコレートのような甘み。フローラルな華やかな香り、長い余韻。"},{no:55,n1:"パナマ エスメラルダ農園",n2:"ゲイシャ プライベートコレクション",bitter:3,acid:3,body:3,roast:5,price:5000,cat:"スーパースペシャリティー",comment:"酸味と甘みのバランスが絶妙。まるで完熟マンゴー。芳醇な香りとフレッシュな味わい。"},{no:56,n1:"パナマ",n2:"ゲイシャ エスメラルダ農園 ナチュラル",bitter:1,acid:3,body:3,roast:3,price:12000,cat:"スペシャリティ",comment:"口に含んだ瞬間、フローラルが一気に広がる。信じられないほど長い余韻。"},{no:57,n1:"ケニア",n2:"アダロニア AA",bitter:2,acid:3,body:2,roast:4,price:1250,cat:"スペシャルティ",comment:"オレンジやカシスの風味、キャラメルのような深い甘み。繊細で華やかな味わい。"},{no:58,n1:"インドネシア",n2:"マンデリン リントン ミトラG1",bitter:4,acid:1,body:3,roast:5,price:1000,cat:"スペシャリティー",comment:"苦味しっかりなのに口当たりはソフト。シルクのように滑らかで重厚感のある味わい。"},{no:59,n1:"グアテマラ",n2:"コバン SHB オーロラ農園",bitter:3,acid:2,body:4,roast:4,price:1000,cat:"スペシャリティー",comment:"ベリーのような香り。軽い酸味。メープルシロップの様な甘さ。チョコレートの様な濃厚さ。"},{no:60,n1:"ブルンジ",n2:"キビンゴ ブルボン ナチュラル",bitter:2,acid:3,body:2,roast:5.6,price:1200,cat:"スペシャリティー",comment:"ストロベリージャムのような印象。クリーミーで滑らかな口あたり。長く続く甘い余韻。"},{no:61,n1:"ブラジル",n2:"カラメリッチ Ｓ１８",bitter:3,acid:2,body:3,roast:4,price:850,cat:"スタンダード",comment:"すっきりした苦味。まるでカラメルのような甘み。"},{no:62,n1:"コスタリカ",n2:"タラス コラリージョ ホワイトポピー",bitter:3,acid:3,body:3,roast:4,price:900,cat:"スペシャリティー",comment:"りんごや柑橘の爽やかな酸味とチョコレート感が一体となった豊かな風味。"},{no:63,n1:"ボリビア",n2:"ボリビアソルデマニャーナ ウォッシュド",bitter:3,acid:2,body:3,roast:6,price:1200,cat:"スペシャリティー",comment:"驚くほど甘く、クリーン。複雑なワインのようなベリーやナッツ風味。"},{no:64,n1:"パプアニューギニア",n2:"シグリAA",bitter:4,acid:3,body:4,roast:5,price:1200,cat:"スペシャリティー",comment:"柔らかい酸味とほろ苦さ。栗やサツマイモのような甘い香り。飲みごたえ抜群。"},{no:65,n1:"エルサルバドル",n2:"パカマラ サンタテレッサ",bitter:2,acid:3,body:3,roast:4,price:1250,cat:"スペシャリティー",comment:"華やかでフルーティーな香り。ハニーな甘さと滑らかな口当たり、複雑な余韻。"},{no:66,n1:"イエメン",n2:"モカハワール シャムス",bitter:2,acid:3,body:3,roast:3,price:3000,cat:"スペシャリティ",comment:"キャンディのような甘さ、ネクタリンの甘酸っぱさ。黒糖のようなこっくりとした甘さ。"},{no:67,n1:"ラオス",n2:"ボラベン高原 ミンティエン農園 アラビカ",bitter:3,acid:1,body:4,roast:5,price:950,cat:"スペシャリティ",comment:"ダークチョコやビターキャラメルのようなどっしりとした甘みとほろ苦さ。ローストナッツのような香ばしい風味。"},{no:68,n1:"ブラジル",n2:"ビスタ・アレグレ農園 パイナップルハニー",bitter:3,acid:2,body:3,roast:5,price:1200,cat:"スペシャリティ",comment:"口の中に広がるトロピカルな甘さ、ジューシーな口当たり。アイスコーヒーにもオススメ。"},{no:69,n1:"ブラジル",n2:"山口農園 ブルボン ナチュラル",bitter:3,acid:2,body:4,roast:4,price:950,cat:"スペシャリティー",comment:"甘く、ボディー感のあるカカオの香り。キャンディーシロップのような甘さ。"},{no:70,n1:"ベトナム",n2:"バレルエイジド アラビカ",bitter:4,acid:2,body:4,roast:5,price:2500,cat:"スペシャリティー",comment:"ウィスキーの芳醇な香り。上品で甘くなめらかな口あたり。"},{no:71,n1:"インドネシア",n2:"アチェ ジャンボガヨ",bitter:4,acid:1,body:4,roast:5,price:1100,cat:"スペシャルティ",comment:"ハーブやスパイス、アーシーな香り。チョコや黒糖のような甘み。重厚なコク。"},{no:72,n1:"マラウイ",n2:"AB ムズズ",bitter:2,acid:4,body:2,roast:4,price:950,cat:"スペシャリティー",comment:"柑橘系の香り。青リンゴやオレンジのようなしっかりとした酸味。酸味がスムーズに甘みに変わる。"},{no:73,n1:"ペルー",n2:"ウォッシュ HG",bitter:2,acid:2,body:2,roast:4,price:750,cat:"スタンダード",comment:"しっかりとしたコクと苦味。ナッツのようなフレーバー。後味のキレがよい。"},{no:74,n1:"ブラジル",n2:"フルッタメルカドン デカフェ",bitter:2,acid:2,body:2,roast:4,price:1000,cat:"デカフェ",comment:"温度変化で味わいが変わる。フルーティーなデカフェ。"},{no:75,n1:"ドミニカ",n2:"ラミレス オーガニック レッドカツーラ",bitter:5,acid:2,body:4,roast:5,price:1450,cat:"スペシャリティー",comment:"ストロベリーの香りが印象的。豊かな甘さとまろやかな口当たり、スパイシーな後味。"},{no:76,n1:"エチオピア",n2:"イルガチャフィG1 アリーチャ ナチュラル",bitter:2,acid:4,body:2,roast:3,price:1200,cat:"スペシャリティー",comment:"桃を丸かじりしているようにジューシーでとろみのある質感。完熟の甘みが長く続く。"},{no:77,n1:"ホンジュラス HG",n2:"",bitter:2,acid:2,body:2,roast:5,price:750,cat:"スタンダード",comment:"クリアーな味わい。酸味は少ない。"},{no:78,n1:"ペルー",n2:"G1 カハマルカ",bitter:3,acid:2,body:4,roast:4,price:1000,cat:"スペシャリティー",comment:"オレンジ系の明るい酸味。黒糖やハチミツのような心地よい後味。口当たりやわらか。"},{no:79,n1:"ラオス",n2:"ボランベン ティピカ",bitter:2,acid:2,body:3,roast:5,price:1000,cat:"スペシャリティー",comment:"さわやかな酸味と甘み。優れた香りが特徴。"},{no:80,n1:"グァテマラ",n2:"ニューオリエンテ マラゴジッペ ウォッシュSHB",bitter:2,acid:4,body:3,roast:4,price:2100,cat:"スペシャリティ",comment:"ライムのような爽やかな酸味。雑味のないクリアな味わい。ナチュラルな甘さ。"},{no:81,n1:"インドネシア",n2:"ジャワティピカ アスクナチュラル",bitter:4,acid:3,body:4,roast:5,price:1200,cat:"スペシャリティー",comment:"オレンジやアプリコットのような酸味と甘み。香り高くジャムのような味。"},{no:82,n1:"ブラジル",n2:"ブルボン・アマレロ パルプドナチュラル デカフェ",bitter:3,acid:2,body:3,roast:5,price:1000,cat:"デカフェ",comment:"チョコレートのような甘さとコク。ブラジルらしい香ばしさ、アイスコーヒーにもおすすめ。"},{no:83,n1:"メキシコ",n2:"サン・アントニオ農園 アナエロビコ",bitter:2,acid:4,body:3,roast:4,price:1200,cat:"スペシャリティー",comment:"赤ワインの様な程よい熟成感、ベリー系の香り、レーズンのような甘み。"},{no:84,n1:"グァテマラ",n2:"サンマルコス エル・フエルト農園 ウォッシュ SHB",bitter:3,acid:3,body:3,roast:5,price:1300,cat:"スペシャリティ",comment:"ナッツやキャラメル、ブラウンシュガーのような甘くこっくりとした味わい。毎日飲みやすいコーヒー。"},{no:85,n1:"コスタリカ",n2:"タラス スカーレットマコー ナチュラル",bitter:2,acid:3,body:3,roast:4,price:1500,cat:"スペシャリティー",comment:"華やかでフローラルな香り、クリーンな柑橘系の酸味。キレが良く後味すっきり。"},{no:86,n1:"タンザニア",n2:"エーデルワイスAA",bitter:2,acid:4,body:3,roast:4,price:1000,cat:"スペシャリティ",comment:"やわらかな酸味、しっかりとした甘み。チョコレート系の香り、トロっとした口当たり。"},{no:87,n1:"パプアニューギニア",n2:"コルブラン",bitter:3,acid:3,body:3,roast:5,price:1200,cat:"スペシャリティー",comment:"酸味と苦みがほど良く、絶妙なバランス。"},{no:88,n1:"ベネズエラ",n2:"ムクカイ農園 カツーラ フルウォッシュド",bitter:3,acid:3,body:4,roast:6,price:1000,cat:"スペシャリティ",comment:"柑橘の酸味、カラメルの甘さ。雑味なくクリアな味わい。"},{no:89,n1:"ウガンダ",n2:"エクセルサ",bitter:2,acid:3,body:3,roast:4,price:1300,cat:"スペシャリティ",comment:"スパイシー、ダークフルーツ、時にワインのような複雑さ。酸味は穏やかで苦味は控えめ。"},{no:90,n1:"インドネシア",n2:"マンデリンＧ１",bitter:3,acid:2,body:3,roast:5,price:900,cat:"スタンダード",comment:"インドネシアの定番。後味が芳醇（大地の香り）。"},{no:91,n1:"グアテマラ ＳＨＢ",n2:"",bitter:2,acid:2,body:2,roast:4,price:800,cat:"スタンダード",comment:"クリアーな味わい。酸味は少ない。"},{no:92,n1:"タンザニア",n2:"ＡＡ",bitter:2,acid:4,body:4,roast:4,price:750,cat:"スタンダード",comment:"柑橘系のフルーティーな酸味、力強くもクリアな味わい。芳醇なコクと甘み。"},{no:93,n1:"コロムビア",n2:"スプレモ",bitter:2,acid:2,body:2,roast:5,price:750,cat:"スタンダード",comment:"マイルドコーヒーの代表。"},{no:94,n1:"エチオピア",n2:"モカシダモG4",bitter:2,acid:2,body:2,roast:3.4,price:750,cat:"スタンダード",comment:"甘く芳醇な香り。なめらかな酸味。"},{no:95,n1:"ブラジル",n2:"サントス No.2",bitter:2,acid:2,body:2,roast:3.4,price:750,cat:"スタンダード",comment:"やわらかく飲み易い。バランスが取れている。すっきりしている。"},{no:96,n1:"エチオピア",n2:"イルガチャフィ イディドG1",bitter:1,acid:3,body:3,roast:5,price:1200,cat:"スペシャリティー",comment:"レモンやジャスミンのようなフローラルでフルーティーな風味。口当たりはクリーンでスッキリ。"},{no:97,n1:"周防 スペシャル ブレンド",n2:"〈ブラジル、ホンジュラス、ガテマラ 他〉",bitter:2,acid:3,body:2,roast:4,price:600,cat:"オリジナルブレンド",comment:"周防コーヒーファクトリーオリジナルのブレンドコーヒーです。"},{no:98,n1:"月丘 スウィート ブレンド",n2:"〈コロムビア、インドネシア、ブラジル 他〉",bitter:3,acid:2,body:3,roast:5,price:600,cat:"オリジナルブレンド",comment:"周防コーヒーファクトリーオリジナルのブレンドコーヒーです。"},{no:99,n1:"アイス ブレンド",n2:"〈コロムビア、ブラジル、インドネシア 他〉",bitter:4,acid:1,body:3,roast:8,price:650,cat:"オリジナルブレンド",comment:"アイスコーヒーに適したブレンドコーヒーです。"},{no:100,n1:"ビターセージブレンド",n2:"〈ブラジル・コロンビア他〉",bitter:4,acid:2,body:3,roast:6,price:800,cat:"オリジナルブレンド",comment:"豊かな風味・しっかりとした苦味・ほんのり甘い後味。"}];
+// 豆データはスプレッドシートから動的に読み込む
+let BEANS = [];
 
-// 種別ごとの価格帯を豆データから自動計算
-function calcPriceRange(){
-  const stdCats=['スタンダード','オリジナルブレンド'];
-  const midCats=['スペシャリティー','スペシャリティ','スペシャルティ','デカフェ'];
-  const premCats=['スーパースペシャリティー'];
-  const prices=(cats)=>BEANS.filter(b=>cats.includes(b.cat)).map(b=>getPrice(b)).filter(v=>v>0);
-  const fmt=(arr)=>arr.length?'¥'+Math.min(...arr).toLocaleString()+'〜¥'+Math.max(...arr).toLocaleString()+'/100g':'';
-  return {
-    budget: fmt(prices(stdCats)),
-    mid:    fmt(prices(midCats)),
-    premium:fmt(prices(premCats)),
-  };
-}
 
 const Qs=[
-  {id:'priceTier',label:'Step 01',text:'どのグレードのコーヒーをお探しですか？',cols:2,
+  {id:'priceTier',label:'Step 01',text:'予算の目安はどのくらいですか？',cols:2,
    opts:[
-    {i:'🌿',t:'スタンダード',s:'定番の飲みやすい豆・ブレンド中心',v:'budget'},
-    {i:'☕',t:'スペシャリティー',s:'産地や農園にこだわった高品質な豆',v:'mid'},
-    {i:'✨',t:'スーパースペシャリティー',s:'希少で最高級の特別な一杯',v:'premium'},
+    {i:'🌿',t:'お手頃（〜¥900/100g）',s:'スタンダード・ブレンド中心',v:'budget'},
+    {i:'☕',t:'プレミアム（¥900〜¥2,000）',s:'スペシャリティー豆中心',v:'mid'},
+    {i:'✨',t:'スーパープレミアム（¥2,000〜）',s:'希少・最高級豆',v:'premium'},
     {i:'🤷',t:'こだわらない',s:'おすすめを選んでほしい',v:'any'},
   ]},
   {id:'region',label:'Step 02',text:'好きなコーヒーの産地はありますか？',cols:2,
@@ -532,47 +520,6 @@ function clearAutoReset(){
 
 
 
-// Flavor tags: WEB情報+産地特性+精製方法+コメントキーワードで算出
-const FTAGS={1:{choco:3.0,fruity:1.0,earthy:0.0,clean:2.0},2:{choco:3.0,fruity:1.0,earthy:2.0,clean:0.0},3:{choco:3.5,fruity:5.0,earthy:0.0,clean:1.5},4:{choco:2.0,fruity:0.0,earthy:4.0,clean:0.0},5:{choco:2.0,fruity:0.0,earthy:3.0,clean:0.0},6:{choco:5.0,fruity:0.0,earthy:1.0,clean:1.0},7:{choco:3.0,fruity:1.0,earthy:0.0,clean:4.0},8:{choco:3.0,fruity:2.5,earthy:-0.5,clean:3.0},9:{choco:4.0,fruity:1.0,earthy:2.0,clean:0.0},10:{choco:5.0,fruity:0.0,earthy:1.0,clean:1.0},11:{choco:5.0,fruity:0.0,earthy:1.0,clean:1.0},12:{choco:2.0,fruity:2.0,earthy:0.0,clean:2.0},13:{choco:3.5,fruity:3.0,earthy:0.0,clean:2.0},14:{choco:2.0,fruity:0.0,earthy:3.0,clean:0.0},15:{choco:2.0,fruity:0.0,earthy:5.0,clean:0.0},16:{choco:2.0,fruity:1.5,earthy:-0.5,clean:3.0},17:{choco:1.5,fruity:5.5,earthy:0.0,clean:0.5},18:{choco:1.5,fruity:3.5,earthy:1.5,clean:2.5},19:{choco:3.0,fruity:7.0,earthy:1.5,clean:0.0},20:{choco:1.0,fruity:2.5,earthy:0.5,clean:2.0},21:{choco:5.5,fruity:1.5,earthy:1.0,clean:0.5},22:{choco:0.0,fruity:4.0,earthy:0.0,clean:1.0},23:{choco:0.5,fruity:6.5,earthy:0.0,clean:0.5},24:{choco:2.0,fruity:4.5,earthy:-0.5,clean:3.0},25:{choco:0.0,fruity:4.0,earthy:0.0,clean:1.0},26:{choco:2.0,fruity:2.5,earthy:0.0,clean:4.0},27:{choco:5.0,fruity:2.0,earthy:0.0,clean:2.5},28:{choco:1.0,fruity:1.0,earthy:0.0,clean:6.0},29:{choco:1.0,fruity:1.0,earthy:0.0,clean:4.0},30:{choco:0.0,fruity:1.0,earthy:0.0,clean:4.0},31:{choco:4.5,fruity:2.0,earthy:0.0,clean:2.5},32:{choco:3.5,fruity:5.5,earthy:0.0,clean:1.5},33:{choco:3.5,fruity:2.5,earthy:2.0,clean:-0.5},34:{choco:2.0,fruity:4.0,earthy:0.0,clean:4.0},35:{choco:2.5,fruity:1.5,earthy:3.0,clean:-0.5},36:{choco:2.0,fruity:5.0,earthy:0.0,clean:1.5},37:{choco:1.0,fruity:4.0,earthy:0.0,clean:1.0},38:{choco:4.0,fruity:1.0,earthy:0.0,clean:2.0},39:{choco:0.0,fruity:3.0,earthy:0.0,clean:1.0},40:{choco:1.0,fruity:5.5,earthy:1.5,clean:1.5},41:{choco:6.0,fruity:1.0,earthy:0.0,clean:2.5},42:{choco:5.5,fruity:3.5,earthy:-0.5,clean:2.0},43:{choco:3.0,fruity:1.5,earthy:0.0,clean:4.0},44:{choco:1.0,fruity:1.0,earthy:0.0,clean:4.0},45:{choco:7.0,fruity:1.5,earthy:-0.5,clean:4.5},46:{choco:2.5,fruity:5.5,earthy:1.0,clean:1.5},47:{choco:2.0,fruity:2.0,earthy:0.5,clean:3.5},48:{choco:1.5,fruity:3.5,earthy:5.0,clean:-0.5},49:{choco:1.0,fruity:4.5,earthy:-0.5,clean:2.0},50:{choco:2.0,fruity:4.0,earthy:1.0,clean:2.0},51:{choco:2.5,fruity:4.5,earthy:0.0,clean:2.5},52:{choco:3.5,fruity:5.0,earthy:-0.5,clean:4.0},53:{choco:4.0,fruity:2.0,earthy:0.5,clean:3.5},54:{choco:4.0,fruity:3.5,earthy:0.5,clean:2.0},55:{choco:2.0,fruity:4.0,earthy:0.0,clean:1.0},56:{choco:1.5,fruity:5.5,earthy:0.0,clean:0.5},57:{choco:3.0,fruity:5.0,earthy:0.0,clean:1.0},58:{choco:2.0,fruity:0.0,earthy:4.0,clean:0.0},59:{choco:4.0,fruity:2.0,earthy:0.0,clean:2.0},60:{choco:1.5,fruity:6.0,earthy:-0.5,clean:1.5},61:{choco:5.5,fruity:0.0,earthy:1.0,clean:2.0},62:{choco:2.0,fruity:3.0,earthy:0.0,clean:2.0},63:{choco:2.0,fruity:2.5,earthy:0.5,clean:4.0},64:{choco:2.0,fruity:1.0,earthy:2.0,clean:0.0},65:{choco:2.5,fruity:3.0,earthy:0.0,clean:2.0},66:{choco:4.0,fruity:3.0,earthy:2.0,clean:0.0},67:{choco:8.0,fruity:0.0,earthy:2.0,clean:0.0},68:{choco:5.0,fruity:4.5,earthy:1.0,clean:0.5},69:{choco:5.5,fruity:1.5,earthy:1.0,clean:0.5},70:{choco:2.0,fruity:0.0,earthy:4.0,clean:0.0},71:{choco:5.0,fruity:0.0,earthy:6.0,clean:0.0},72:{choco:1.0,fruity:4.0,earthy:1.0,clean:1.0},73:{choco:2.0,fruity:1.5,earthy:-0.5,clean:3.0},74:{choco:3.0,fruity:1.0,earthy:1.0,clean:1.0},75:{choco:2.5,fruity:5.0,earthy:0.0,clean:2.0},76:{choco:1.5,fruity:5.5,earthy:0.0,clean:0.5},77:{choco:1.0,fruity:1.0,earthy:0.0,clean:5.0},78:{choco:2.0,fruity:4.0,earthy:0.0,clean:3.0},79:{choco:5.0,fruity:0.0,earthy:2.0,clean:0.0},80:{choco:3.5,fruity:4.0,earthy:-0.5,clean:3.5},81:{choco:3.5,fruity:3.5,earthy:3.0,clean:-0.5},82:{choco:6.5,fruity:1.5,earthy:1.0,clean:0.5},83:{choco:2.5,fruity:3.5,earthy:2.5,clean:1.5},84:{choco:5.0,fruity:1.5,earthy:-0.5,clean:3.0},85:{choco:1.5,fruity:5.5,earthy:0.0,clean:2.5},86:{choco:3.0,fruity:2.0,earthy:1.0,clean:1.0},87:{choco:4.5,fruity:2.0,earthy:2.0,clean:1.0},88:{choco:3.5,fruity:4.0,earthy:-0.5,clean:6.0},89:{choco:1.0,fruity:2.0,earthy:3.0,clean:0.0},90:{choco:2.0,fruity:0.0,earthy:7.0,clean:0.0},91:{choco:2.0,fruity:1.0,earthy:0.0,clean:4.0},92:{choco:2.0,fruity:4.0,earthy:1.0,clean:2.0},93:{choco:3.0,fruity:1.5,earthy:0.0,clean:5.0},94:{choco:0.0,fruity:4.0,earthy:0.0,clean:1.0},95:{choco:4.0,fruity:0.0,earthy:1.0,clean:1.0},96:{choco:0.0,fruity:7.5,earthy:-0.5,clean:2.0},97:{choco:0.0,fruity:1.0,earthy:0.0,clean:1.0},98:{choco:2.0,fruity:0.0,earthy:0.0,clean:0.0},99:{choco:0.0,fruity:0.0,earthy:0.0,clean:0.0},100:{choco:1.0,fruity:0.0,earthy:0.0,clean:0.0}};
-
-// region: africa/latam/asia/blend  tier: budget(≤900)/mid(901-1999)/premium(≥2000)
-const BEAN_META={
-1:{region:'latam',tier:'mid'},2:{region:'africa',tier:'mid'},3:{region:'latam',tier:'premium'},
-4:{region:'asia',tier:'budget'},5:{region:'asia',tier:'mid'},6:{region:'latam',tier:'budget'},
-7:{region:'latam',tier:'mid'},8:{region:'latam',tier:'mid'},9:{region:'asia',tier:'budget'},
-10:{region:'latam',tier:'mid'},11:{region:'latam',tier:'premium'},12:{region:'asia',tier:'premium'},
-13:{region:'latam',tier:'mid'},14:{region:'asia',tier:'premium'},15:{region:'asia',tier:'mid'},
-16:{region:'latam',tier:'mid'},17:{region:'africa',tier:'mid'},18:{region:'africa',tier:'budget'},
-19:{region:'asia',tier:'mid'},20:{region:'asia',tier:'mid'},21:{region:'latam',tier:'budget'},
-22:{region:'africa',tier:'budget'},23:{region:'africa',tier:'budget'},24:{region:'africa',tier:'budget'},
-25:{region:'africa',tier:'budget'},26:{region:'latam',tier:'budget'},27:{region:'latam',tier:'budget'},
-28:{region:'latam',tier:'budget'},29:{region:'latam',tier:'premium'},30:{region:'latam',tier:'mid'},
-31:{region:'latam',tier:'mid'},32:{region:'latam',tier:'budget'},33:{region:'africa',tier:'budget'},
-34:{region:'latam',tier:'budget'},35:{region:'asia',tier:'budget'},36:{region:'africa',tier:'budget'},
-37:{region:'africa',tier:'mid'},38:{region:'latam',tier:'mid'},39:{region:'africa',tier:'mid'},
-40:{region:'africa',tier:'budget'},41:{region:'latam',tier:'mid'},42:{region:'latam',tier:'mid'},
-43:{region:'latam',tier:'budget'},44:{region:'latam',tier:'premium'},45:{region:'latam',tier:'mid'},
-46:{region:'asia',tier:'mid'},47:{region:'latam',tier:'budget'},48:{region:'asia',tier:'budget'},
-49:{region:'africa',tier:'mid'},50:{region:'africa',tier:'mid'},51:{region:'africa',tier:'mid'},
-52:{region:'latam',tier:'mid'},53:{region:'latam',tier:'budget'},54:{region:'africa',tier:'mid'},
-55:{region:'latam',tier:'premium'},56:{region:'latam',tier:'premium'},57:{region:'africa',tier:'mid'},
-58:{region:'asia',tier:'mid'},59:{region:'latam',tier:'mid'},60:{region:'africa',tier:'mid'},
-61:{region:'latam',tier:'budget'},62:{region:'latam',tier:'budget'},63:{region:'latam',tier:'mid'},
-64:{region:'asia',tier:'mid'},65:{region:'latam',tier:'mid'},66:{region:'africa',tier:'premium'},
-67:{region:'asia',tier:'budget'},68:{region:'latam',tier:'mid'},69:{region:'latam',tier:'budget'},
-70:{region:'asia',tier:'premium'},71:{region:'asia',tier:'mid'},72:{region:'africa',tier:'budget'},
-73:{region:'latam',tier:'budget'},74:{region:'latam',tier:'mid'},75:{region:'latam',tier:'mid'},
-76:{region:'africa',tier:'mid'},77:{region:'latam',tier:'budget'},78:{region:'latam',tier:'mid'},
-79:{region:'asia',tier:'mid'},80:{region:'latam',tier:'premium'},81:{region:'asia',tier:'mid'},
-82:{region:'latam',tier:'mid'},83:{region:'latam',tier:'mid'},84:{region:'latam',tier:'mid'},
-85:{region:'latam',tier:'mid'},86:{region:'africa',tier:'mid'},87:{region:'asia',tier:'mid'},
-88:{region:'latam',tier:'mid'},89:{region:'africa',tier:'mid'},90:{region:'asia',tier:'budget'},
-91:{region:'latam',tier:'budget'},92:{region:'africa',tier:'budget'},93:{region:'latam',tier:'budget'},
-94:{region:'africa',tier:'budget'},95:{region:'latam',tier:'budget'},96:{region:'africa',tier:'mid'},
-97:{region:'blend',tier:'budget'},98:{region:'blend',tier:'budget'},99:{region:'blend',tier:'budget'},
-100:{region:'blend',tier:'budget'}
-};
-
 function score(b,a){
   let s=0;
   const acidT={love:3.5,mild:2.5,dislike:1.5,hate:1}[a.acidSens]??2.5;
@@ -586,7 +533,8 @@ function score(b,a){
   s-=Math.abs(b.body-bodyT)*1.5;
   const roastT={light:2.5,medium:4.5,dark:6.5}[a.roast]??4.5;
   s-=Math.abs(b.roast-roastT)*1.2;
-  const ft=FTAGS[b.no]||{choco:0,fruity:0,earthy:0,clean:0};
+  // 風味タグは豆データ自身に持つ
+  const ft={choco:b.choco||0,fruity:b.fruity||0,earthy:b.earthy||0,clean:b.clean||0};
   const fl=a.flavor||'clean';
   const flScore=ft[fl]||0;
   s+=Math.min(flScore,6)*0.55;
@@ -595,7 +543,7 @@ function score(b,a){
   }
   const isRare=b.cat==='スーパースペシャリティー'||b.price>=3000;
   const isClassic=b.cat==='スタンダード'||b.cat==='オリジナルブレンド';
-  const isUnique=['アナエロビ','インフューズド','ストロベリー','バレルエイジド','コピルアック'].some(k=>b.n2.includes(k));
+  const isUnique=['アナエロビ','インフューズド','ストロベリー','バレルエイジド','コピルアック'].some(k=>(b.n2||'').includes(k));
   if(a.adventure==='classic'){s+=isClassic?1.5:0;s-=isRare?0.5:0;}
   else if(a.adventure==='explore'){s+=isUnique?0.8:0;s+=(!isClassic&&!isRare)?0.4:0;}
   else{s+=isRare?2:0;s+=isUnique?1:0;s-=isClassic?0.5:0;}
@@ -608,80 +556,92 @@ function score(b,a){
   if(a.scene==='after_meal')s+=(b.bitter>=2&&b.acid<=3)?0.5:0;
   return s;
 }
-// 在庫管理画面と同じキーでlocalStorageから在庫を読み込む
-const SHEET_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vS3aY18PiOtoCh7sqSRR50QQWSB0bVUcR2YrwDkDNFOhgYP-30y-Z8NAGQOsuFstT5EEd-O4pLXnh9N/pub?gid=1921417510&single=true&output=csv';
-const STORAGE_KEY='suou_inventory_v1';
-const PRICE_KEY='suou_prices_v1';
-let inventoryStock={};
-let priceOverrides={};
 
-async function loadInventory(){
-  // スプレッドシートから最新データを取得（常に優先・キャッシュ回避）
+// スプレッドシートURL
+const SHEET_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vS3aY18PiOtoCh7sqSRR50QQWSB0bVUcR2YrwDkDNFOhgYP-30y-Z8NAGQOsuFstT5EEd-O4pLXnh9N/pub?gid=1921417510&single=true&output=csv';
+
+// CSVの1行をパース（カンマ区切り・ダブルクォート対応）
+function parseCSVRow(row){
+  const result=[];
+  let cur='',inQ=false;
+  for(let i=0;i<row.length;i++){
+    const c=row[i];
+    if(c==='"'){inQ=!inQ;}
+    else if(c===','&&!inQ){result.push(cur.trim());cur='';}
+    else{cur+=c;}
+  }
+  result.push(cur.trim());
+  return result;
+}
+
+// スプレッドシートから全データを読み込む
+// 列順: A=No, B=豆名, C=品名, D=カテゴリ, E=在庫,
+//       F=100g, G=200g, H=300g, I=400g, J=500g,
+//       K=酸味, L=苦味, M=コク, N=焙煎, O=コメント,
+//       P=産地, Q=choco, R=fruity, S=earthy, T=clean
+async function loadData(){
   try{
     const res=await fetch(SHEET_URL+'&t='+Date.now());
     const csv=await res.text();
     const rows=csv.trim().split('\n').slice(1);
-    console.log('スプレッドシート読み込み成功。行数:', rows.length);
-    const newStock={};
-    const newPrices={};
+    const newBeans=[];
     rows.forEach(row=>{
-      const cols=row.split(',');
-      const no=parseInt(cols[0]);
+      const c=parseCSVRow(row);
+      const no=parseInt(c[0]);
       if(!no) return;
-      const stockVal=cols[4]?.trim().toUpperCase();
-      const inStock=stockVal!=='FALSE'&&stockVal!=='0'&&stockVal!=='';
-      newStock[no]=inStock;
-      newStock[String(no)]=inStock;
-      const p100=parseInt(cols[5])||0;
-      const p200=parseInt(cols[6])||0;
-      const p500=parseInt(cols[7])||0;
-      if(p100||p200||p500){
-        newPrices[no]={};
-        if(p100) newPrices[no].p100=p100;
-        if(p200) newPrices[no].p200=p200;
-        if(p500) newPrices[no].p500=p500;
-      }
+      const inStock=c[4]?.toUpperCase()!=='FALSE'&&c[4]!=='0'&&c[4]!=='';
+      newBeans.push({
+        no,
+        n1:c[1]||'',
+        n2:c[2]||'',
+        cat:c[3]||'',
+        inStock,
+        price:parseInt(c[5])||0,   // 100g価格をデフォルト価格に
+        p100:parseInt(c[5])||0,
+        p200:parseInt(c[6])||0,
+        p300:parseInt(c[7])||0,
+        p400:parseInt(c[8])||0,
+        p500:parseInt(c[9])||0,
+        acid:parseFloat(c[10])||0,
+        bitter:parseFloat(c[11])||0,
+        body:parseFloat(c[12])||0,
+        roast:parseFloat(c[13])||0,
+        comment:c[14]||'',
+        region:c[15]||'',
+        choco:parseFloat(c[16])||0,
+        fruity:parseFloat(c[17])||0,
+        earthy:parseFloat(c[18])||0,
+        clean:parseFloat(c[19])||0,
+      });
     });
-    console.log('在庫OFFの豆:', Object.entries(newStock).filter(([,v])=>!v).map(([k])=>k));
-    inventoryStock=newStock;
-    priceOverrides=newPrices;
+    if(newBeans.length>0){
+      BEANS=newBeans;
+      console.log(`スプレッドシートから${BEANS.length}種類の豆データを読み込みました`);
+    }
   }catch(e){
-    // スプレッドシート取得失敗時のみlocalStorageを使う
-    console.log('スプレッドシート読み込み失敗、キャッシュを使用:', e);
-    try{
-      const saved=localStorage.getItem(STORAGE_KEY);
-      if(saved) inventoryStock=JSON.parse(saved);
-      else BEANS.forEach(b=>inventoryStock[b.no]=true);
-    }catch(e2){ BEANS.forEach(b=>inventoryStock[b.no]=true); }
-    try{
-      const saved=localStorage.getItem(PRICE_KEY);
-      if(saved) priceOverrides=JSON.parse(saved);
-    }catch(e2){}
+    console.error('スプレッドシート読み込み失敗:',e);
   }
 }
 
-// 起動時にスプレッドシートを読み込んでから画面を表示
-loadInventory().then(()=>renderQ());
 
-// 豆の実際の価格を取得（管理画面で上書きされていればそちらを優先）
+
+// 豆の実際の価格を取得
 function getPrice(b){
-  return priceOverrides[b.no]?.p100 ?? b.price;
+  return b.p100||b.price||0;
 }
-// グラム別価格テキスト生成
+// グラム別価格テキスト生成（100g・200g・300g・400g・500g対応）
 function getPriceText(b){
-  const ov=priceOverrides[b.no];
-  if(!ov) return `¥${b.price.toLocaleString()}/100g`;
   const parts=[];
-  if(ov.p100) parts.push(`¥${ov.p100.toLocaleString()}/100g`);
-  if(ov.p200) parts.push(`¥${ov.p200.toLocaleString()}/200g`);
-  if(ov.p500) parts.push(`¥${ov.p500.toLocaleString()}/500g`);
-  return parts.length>0 ? parts.join('　') : `¥${b.price.toLocaleString()}/100g`;
+  if(b.p100) parts.push(`¥${b.p100.toLocaleString()}/100g`);
+  if(b.p200) parts.push(`¥${b.p200.toLocaleString()}/200g`);
+  if(b.p500) parts.push(`¥${b.p500.toLocaleString()}/500g`);
+  if(parts.length>0) return parts.join('　');
+  return b.price?`¥${b.price.toLocaleString()}/100g`:'価格未設定';
 }
 
 function isAvail(b,a){
-  // 在庫管理画面でOFFにされた豆は除外
-  if(inventoryStock[b.no]===false||inventoryStock[b.no]===0||inventoryStock[String(b.no)]===false||inventoryStock[String(b.no)]===0) return false;
-  if(b.outOfStock||b.comingSoon)return false;
+  // 在庫がFALSEの豆は除外
+  if(!b.inStock) return false;
   const d=b.cat==='デカフェ';
   if(a.decaf==='decaf'&&!d)return false;
   if(a.decaf==='normal'&&d)return false;
@@ -694,9 +654,8 @@ function isAvail(b,a){
     if(a.priceTier==='mid'&&!midCats.includes(b.cat))return false;
     if(a.priceTier==='premium'&&!premCats.includes(b.cat))return false;
   }
-  const meta=BEAN_META[b.no]||{};
-  // Region filter
-  if(a.region&&a.region!=='any'&&meta.region!==a.region)return false;
+  // 産地フィルタリング（beanのregion列を使用）
+  if(a.region&&a.region!=='any'&&b.region!==a.region)return false;
   return true;
 }
 
@@ -722,12 +681,13 @@ function reasons(b,a){
   if(a.brew==='espresso'&&b.roast>=5)r.push({i:'☕',t:'エスプレッソに向く深い焙煎'});
   if(a.adventure==='classic'&&(b.cat==='スタンダード'||b.cat==='オリジナルブレンド'))r.push({i:'🏆',t:'定番・飲みやすさで選んだ'});
   if(a.adventure==='bold'&&(b.cat==='スーパースペシャリティー'||b.price>=3000))r.push({i:'🚀',t:'希少・プレミアムな一杯'});
-  const meta=BEAN_META[b.no]||{};
-  if(a.region==='africa'&&meta.region==='africa')r.push({i:'🌍',t:'アフリカ産の華やかな風味'});
-  if(a.region==='latam'&&meta.region==='latam')r.push({i:'🌎',t:'中南米産のバランスの良さ'});
-  if(a.region==='asia'&&meta.region==='asia')r.push({i:'🌏',t:'アジア産の個性的な味わい'});
-  if(a.priceTier==='budget'&&['スタンダード','オリジナルブレンド'].includes(b.cat))r.push({i:'🌿',t:'スタンダードグレードの飲みやすい豆'});
-  if(a.priceTier==='premium'&&b.cat==='スーパースペシャリティー')r.push({i:'✨',t:'希少なスーパースペシャリティー'});
+  if(a.region==='africa'&&b.region==='africa')r.push({i:'🌍',t:'アフリカ産の華やかな風味'});
+  if(a.region==='latam'&&b.region==='latam')r.push({i:'🌎',t:'中南米産のバランスの良さ'});
+  if(a.region==='asia'&&b.region==='asia')r.push({i:'🌏',t:'アジア産の個性的な味わい'});
+  const stdCats=['スタンダード','オリジナルブレンド'];
+  const premCats=['スーパースペシャリティー'];
+  if(a.priceTier==='budget'&&stdCats.includes(b.cat))r.push({i:'🌿',t:'お手頃価格で毎日楽しめる'});
+  if(a.priceTier==='premium'&&premCats.includes(b.cat))r.push({i:'✨',t:'希少な最高級豆'});
   return r.slice(0,3);
 }
 
@@ -738,17 +698,6 @@ function renderQ(){
   document.getElementById('progPct').textContent=pct+'%';
   document.getElementById('progFill').style.width=pct+'%';
   const q=Qs[step];
-  // 1問目だけ価格帯を動的に差し込む
-  let opts=q.opts;
-  if(q.id==='priceTier'){
-    const pr=calcPriceRange();
-    opts=q.opts.map(o=>{
-      if(o.v==='budget') return {...o,s:'定番の飲みやすい豆・ブレンド中心'+(pr.budget?' ('+pr.budget+')':'')};
-      if(o.v==='mid')    return {...o,s:'産地や農園にこだわった高品質な豆'+(pr.mid?' ('+pr.mid+')':'')};
-      if(o.v==='premium')return {...o,s:'希少で最高級の特別な一杯'+(pr.premium?' ('+pr.premium+')':'')};
-      return o;
-    });
-  }
   const el=document.getElementById('qBody');
   el.innerHTML=`
     <div class="q-card">
@@ -756,7 +705,7 @@ function renderQ(){
       <div class="q-title">${q.text}</div>
       ${q.hint?`<div class="q-hint">${q.hint}</div>`:''}
       <div class="opts${q.cols===3?' cols3':''}">
-        ${opts.map(o=>`
+        ${q.opts.map(o=>`
           <button class="opt" onclick="pick('${q.id}','${o.v}')">
             <div class="opt-icon">${o.i}</div>
             <div>
@@ -794,7 +743,7 @@ function showResult(){
     const avail1=BEANS.filter(b=>isAvail(b,ans1));
     if(avail1.length>=3){
       avail=avail1;
-      const tierLabel={budget:'スタンダード',mid:'スペシャリティー',premium:'スーパースペシャリティー'}[ans.priceTier];
+      const tierLabel={budget:'お手頃',mid:'プレミアム',premium:'スーパープレミアム'}[ans.priceTier];
       relaxMsg=tierLabel?`選んだ価格帯（${tierLabel}）では候補が少なかったため、価格帯の条件を広げて表示しています。`:'価格帯の条件を広げて表示しています。';
     } else {
       // Step2: 産地だけ外す
@@ -834,13 +783,7 @@ function showResult(){
   const scored=avail.map(b=>({bean:b,sc:score(b,ans)})).sort((a,b)=>b.sc-a.sc);
   const top3=scored.slice(0,3).map(s=>s.bean);
   const top1p=top3[0]?getPrice(top3[0]):9999;
-  const alts=scored.slice(3,20).filter(s=>{
-    const b=s.bean;
-    // デカフェ選択時はデカフェ豆のみ、通常時はデカフェ除外
-    if(ans.decaf==='decaf'&&b.cat!=='デカフェ') return false;
-    if(ans.decaf==='normal'&&b.cat==='デカフェ') return false;
-    return getPrice(b)<=top1p*.72||(top1p>2000&&getPrice(b)<=1200);
-  }).slice(0,3).map(s=>s.bean);
+  const alts=scored.slice(3,20).filter(s=>getPrice(s.bean)<=top1p*.72||(top1p>2000&&getPrice(s.bean)<=1200)).slice(0,3).map(s=>s.bean);
   const rkLbl=['ベストマッチ','次点','3位'];
   const cardsHtml=top3.map((b,i)=>{
     const rs=reasons(b,ans);
@@ -891,6 +834,9 @@ function restart(){
   renderQ();
   window.scrollTo(0,0);
 }
+
+// 起動時にスプレッドシートから全データを読み込んでから開始
+loadData().then(()=>renderQ());
 </script>
 </body>
 </html>
