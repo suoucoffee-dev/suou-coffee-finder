@@ -670,14 +670,12 @@ function showScreensaver(){
 
   const ss=document.createElement('div');
   ss.id='screensaver';
-  ss.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;cursor:pointer;';
+  ss.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;cursor:pointer;overflow:hidden;background:#1a0a00;';
   ss.innerHTML=`
-    <div style="position:relative;width:100%;height:100%;background:#1a0a00;">
-      <img src="${imgFile}" style="width:100%;height:100%;object-fit:cover;opacity:0.92;" onerror="this.style.display='none'">
-      <div style="position:absolute;bottom:60px;left:0;right:0;text-align:center;">
-        <div style="display:inline-block;background:rgba(0,0,0,0.45);padding:14px 32px;border-radius:30px;">
-          <span style="color:#fff;font-size:16px;letter-spacing:0.12em;font-family:'Hiragino Mincho ProN',serif;">タップして診断を始める</span>
-        </div>
+    <img src="${imgFile}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.92;" onerror="this.style.display='none'">
+    <div style="position:absolute;bottom:60px;left:0;right:0;text-align:center;">
+      <div style="display:inline-block;background:rgba(0,0,0,0.45);padding:14px 32px;border-radius:30px;">
+        <span style="color:#fff;font-size:16px;letter-spacing:0.12em;font-family:'Hiragino Mincho ProN',serif;">タップして診断を始める</span>
       </div>
     </div>`;
   ss.addEventListener('click',()=>{
